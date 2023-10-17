@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 from gpt_code_ui.kernel_program.main import APP_PORT as KERNEL_APP_PORT
 
 # Get environmental variables and set code variables
-load_dotenv('/home/shawn/code/gpt-code-ui/.env')
+load_dotenv('.env')
 
 openai.api_type = os.environ.get("OPENAI_API_TYPE")
 openai.api_version = os.environ.get("OPENAI_API_VERSION")
@@ -158,7 +158,7 @@ async def get_code(user_prompt, user_openai_key=None, model="gpt-3.5-turbo"):
         openai.api_key = user_openai_key
 
     arguments = dict(
-        temperature=0.7,
+        temperature=0.3,
         headers=OPENAI_EXTRA_HEADERS,
         messages=[
             # {"role": "system", "content": system},

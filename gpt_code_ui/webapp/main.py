@@ -114,6 +114,8 @@ def inspect_file(filename: str) -> str:
 
     try:
         df = READER_MAP[ext.lower()](filename)
+        # Clean data and set cell types, describe the data to the user and display top 5 rows.
+
         return f'The file contains the following columns: {", ".join(df.columns)}'
     except KeyError:
         return ''  # unsupported file type
@@ -158,7 +160,7 @@ async def get_code(user_prompt, user_openai_key=None, model="gpt-3.5-turbo"):
         openai.api_key = user_openai_key
 
     arguments = dict(
-        temperature=0.3,
+        temperature=0.7,
         headers=OPENAI_EXTRA_HEADERS,
         messages=[
             # {"role": "system", "content": system},

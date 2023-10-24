@@ -75,8 +75,8 @@ def print_banner():
         print("")
         print("You can inspect detailed logs in app.log.")
         print("")
-        print_color("Forked from GPT-Code UI at https://github.com/ricklamers/gpt-code-ui")
-        print_color("AOAI Code Intepreter at https://github.com/shawnmittal/gpt-code-ui-azure")
+        print_color("Forked from GPT-Code UI at https://github.com/shawnmittal/gpt-code-ui-azure")
+        print_color("AOAI Code Budgeter at https://github.com/jogeorg/gpt-code-budget")
 
 def main():
     setup_logging()

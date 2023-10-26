@@ -130,7 +130,7 @@ async def get_code(user_prompt, user_openai_key=None, model="gpt-3.5-turbo"):
     History:
     {message_buffer.get_string()}
     ENDOFHISTORY.
-    Write Python code, in a triple backtick Markdown code block, that does the following:
+    You are a data analyst, please write Python code, in a triple backtick Markdown code block, that does the following:
     {user_prompt}
     
     Notes: 
@@ -153,6 +153,9 @@ async def get_code(user_prompt, user_openai_key=None, model="gpt-3.5-turbo"):
             'folium', # folium==0.14.0
         Be sure to generate charts with matplotlib or seaborn. If you need geographical charts, use geopandas with the geopandas.datasets module or folium for creating maps.
         If the user has just uploaded a file, focus on the file that was most recently uploaded (and optionally all previously uploaded files)
+        
+        You can use the follow python libraries:
+            numpy, dateparser, pandas, geopandas, tabulate, PyPDF2, pdfminer, pdfplumber, matplotlib, seaborn, folium, ipykernel, requests, Flask, flask-cors, python-dotenv, pandas, openai, tiktoken, xlrd, scikit-learn, openpyxl, SciPy, Statsmodels, Keras, TensorFlow, PyTorch
     
     Teacher mode: if the code modifies or produces a file, at the end of the code block insert a print statement that prints a link to it as HTML string: <a href='/download?file=INSERT_FILENAME_HERE'>Download file</a>. Replace INSERT_FILENAME_HERE with the actual filename."""
 

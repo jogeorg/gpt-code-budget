@@ -1,6 +1,7 @@
 # Secrets
 .env
 .dev.env
+OAI_CONFIG_LIST.json
 
 # Program related
 process_pids/

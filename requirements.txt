@@ -25,4 +25,3 @@ SciPy>=1.11.3
 Statsmodels>=0.14.0
 Keras>=2.14.0
 TensorFlow>=2.14.0
-PyTorch>=2.1

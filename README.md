@@ -1,4 +1,4 @@
-# AOAI Code Interpreter
+# AOAI Budgeting Code Interpreter
 
 An open source implementation of OpenAI's ChatGPT [Code interpreter](https://openai.com/blog/chatgpt-plugins#code-interpreter).
 

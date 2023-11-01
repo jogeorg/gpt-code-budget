@@ -20,11 +20,16 @@ release:
 	bash scripts/create_release.sh
 
 compile_frontend:
-	cd frontend && \
-	npm install && \
-	VITE_APP_VERSION=$$(grep -e "^\s*version='[^']*'" ../setup.py | cut -d "'" -f 2) npm run build && \
-	find ../gpt_code_ui/webapp/static -mindepth 1 ! -name '.gitignore' -delete && \
+	@echo "Running npm install..."
+	npm install
+	@echo "Running npm run build..."
+	VITE_APP_VERSION=$$(grep -e "^\s*version='[^']*'" ../setup.py | cut -d "'" -f 2) npm run build
+	@echo "Cleaning up static files..."
+	find ../gpt_code_ui/webapp/static -mindepth 1 ! -name '.gitignore' -delete
+	@echo "Copying files to webapp/static..."
 	rsync -av dist/ ../gpt_code_ui/webapp/static
+	@echo "Compilation completed."
+
 
 bundle_pypi:
 	rm -rf dist build && \

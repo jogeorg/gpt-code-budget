@@ -1,0 +1,18 @@
+# Use a Python image for the backend
+FROM python:3.9-slim as backend
+
+# Set the working directory for the backend
+WORKDIR /app
+
+# Copy your project files for the backend
+COPY .env /app
+COPY requirements.txt /app
+COPY . /app
+
+# Install Python dependencies
+
+RUN pip install -r requirements.txt
+RUN pip install -e .
+
+# Set the command to run your backend application
+CMD ["gptcode"]

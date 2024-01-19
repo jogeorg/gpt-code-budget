@@ -13,9 +13,9 @@ Open a terminal and run:
 ```sh
 python3 -m venv venv
 # Unix
-source ./venv/bin/activate
+# source ./venv/bin/activate
 # Windows
-#./venv/Scripts/activate
+./venv/Scripts/activate
 pip install -r requirements.txt
 pip install -e .
 make compile_frontend

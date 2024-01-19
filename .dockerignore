@@ -1,12 +1,12 @@
-# .devcontainer
-# docs
-# .github
-# gpt_code_ui.egg-info
-# process_pids
-# .env.azure-example
-# .env.example
-# .gitignore
-# app.log
-# dockerfile
-# kernel_connection_file.json
-# LICENSE
+.devcontainer
+docs
+.github
+gpt_code_ui.egg-info
+process_pids
+.env.azure-example
+.env.example
+.gitignore
+app.log
+Dockerfile
+kernel_connection_file.json
+LICENSE

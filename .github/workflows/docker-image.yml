@@ -2,19 +2,17 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: 'Create env file'
-      run: echo "${{ secrets.ENV_FILE }}" > .env
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag "${{ secrets.ACR }}":$(date +%s)
+      - uses: actions/checkout@v3
+      - name: "Create env file"
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag "${{ secrets.ACR }}":$(date +%s)

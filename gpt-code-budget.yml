@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: gpt-code-budget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gpt-code-budget
+  template:
+    metadata:
+      labels:
+        app: gpt-code-budget
+    spec:
+      containers:
+        - name: gpt-code-budget
+          image: ${{ secrets.ACR }}:1.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: gpt-code-budget
+spec:
+  ports:
+    - port: 8080
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: gpt-code-budget

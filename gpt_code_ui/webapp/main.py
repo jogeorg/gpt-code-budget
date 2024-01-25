@@ -309,7 +309,7 @@ def upload_file():
     if file.filename == '':
         return jsonify({'error': 'No selected file'}), 400
     if file and allowed_file(file.filename):
-        file_target = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        file_target = os.path.normpath(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         file.save(file_target)
         file_info = inspect_file(file_target)
         return jsonify({'message': f'File {file.filename} uploaded successfully.\n{file_info}'}), 200
@@ -318,4 +318,4 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=APP_PORT, debug=True, use_reloader=False)
+    app.run(host="0.0.0.0", port=APP_PORT, debug=False, use_reloader=False)
